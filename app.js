@@ -3,14 +3,18 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
-app.use(cors());
 app.use(express.json());
+app.use(express.static('public'))
 
 var lightState = [];
 
 app.get('/status', (req, res) => {
-    console.log("HELLO WORLD");
-    res.send('HELLO WORLD');
+  console.log("HELLO WORLD");
+  res.send('HELLO WORLD');
+})
+
+app.get('/', (req, res) => {
+  res.render('index');
 })
 
 app.get('/matrix', (req, res) => {

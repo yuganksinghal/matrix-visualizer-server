@@ -1,0 +1,43 @@
+html {
+    background-color: #343434;
+    --led-rows: 8;
+    --led-columns: 32;
+}
+
+body {
+    margin: 0;
+}
+
+#colorPicker {
+    border: none;
+    display: block;
+    height: 50px;
+    margin: 0 auto;
+    width: 50px;
+}
+
+.led {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+}
+
+#LEDMatrix {
+    align-items: stretch;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 5px;
+    grid-template-columns: repeat(var(--led-columns), 50px);
+    grid-template-rows: repeat(var(--led-rows), 50px);
+    justify-content: center;
+    justify-items: stretch;
+    margin: 10px 0;
+    overflow-x: auto;
+    padding-left: 8px;
+}
+
+#eraserContainer {
+    color: #fff;
+    margin: 4px auto;
+    width: fit-content;
+}
