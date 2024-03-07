@@ -1,0 +1,30 @@
+{
+  "name": "matrix-visualizer-server",
+  "version": "1.0.0",
+  "description": "Express App for taking in data from Matrix Visualizer Frontend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuganksinghal/matrix-visualizer-server.git"
+  },
+  "keywords": [
+    "esp32",
+    "LED",
+    "Matrix",
+    "WS2812"
+  ],
+  "author": "Yugank Singhal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuganksinghal/matrix-visualizer-server/issues"
+  },
+  "homepage": "https://github.com/yuganksinghal/matrix-visualizer-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3"
+  }
+}
