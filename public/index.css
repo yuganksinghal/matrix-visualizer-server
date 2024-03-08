@@ -11,9 +11,9 @@ body {
 #colorPicker {
     border: none;
     display: block;
-    height: 50px;
+    height: 100px;
     margin: 0 auto;
-    width: 50px;
+    width: 100vw;
 }
 
 .led {
@@ -27,9 +27,9 @@ body {
     display: grid;
     grid-auto-flow: column;
     grid-gap: 5px;
-    grid-template-columns: repeat(var(--led-columns), 50px);
-    grid-template-rows: repeat(var(--led-rows), 50px);
-    justify-content: center;
+    grid-template-columns: repeat(var(--led-columns), 70px);
+    grid-template-rows: repeat(var(--led-rows), 70px);
+    justify-content: left;
     justify-items: stretch;
     margin: 10px 0;
     overflow-x: auto;
@@ -40,4 +40,10 @@ body {
     color: #fff;
     margin: 4px auto;
     width: fit-content;
+}
+    
+@media (min-width: 2086px) {
+    #LEDMatrix {
+        justify-content: center;
+    }
 }

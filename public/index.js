@@ -31,7 +31,7 @@ function findIndex(i) {
 }
 
 function paintPixel(e) {
-    const eraseState = document.querySelector('#eraser').checked;
+    const eraseState = matrixData[e.target.dataset.matrixIndex] != 'off';
     const pixel = e.target;
     pixel.style.backgroundColor = eraseState ? '' : paintbrush;
     matrixData[pixel.dataset.matrixIndex] = eraseState ? 'off' : paintbrush;
