@@ -14,6 +14,7 @@ function setupBoard() {
         // LED.innerHTML = `${i} | ${findIndex(i)}`; // debug line
         LED.dataset.matrixIndex = findIndex(i);
         LED.addEventListener('mousedown', (event) => paintPixel(event));
+        LED.addEventListener('mouseover', (event) => dragPixel(event));
         LEDMatrix.appendChild(LED);
     }
     matrixData.fill("off");
@@ -21,6 +22,12 @@ function setupBoard() {
 
 function onColorChange() {
     paintbrush = colorPicker.value;
+}
+
+function dragPixel(e) {
+    if (e.buttons === 1) {
+        paintPixel(e);
+    }
 }
 
 function findIndex(i) {
