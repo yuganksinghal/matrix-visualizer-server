@@ -4,30 +4,22 @@ const rows = 8;
 const columns = 32;
 var matrixData = new Array(rows*columns);
 const total = rows * columns;
-const lightSocket = new WebSocket(`ws://${window.location.host}/matrix`);
+// const lightSocket = new WebSocket(`ws://${window.location.host}/matrix`);
 
-lightSocket.onmessage = (event) => {
-    lsData = JSON.parse(event.data);
-    if(lsData.length === 0) {
-        setupBoard();
-        return
-    }
-    const LEDMatrix = document.querySelector('#LEDMatrix');
-    let children = []
-    for (let i = 0; i < lsData.length; i++) {
-        let LED = document.createElement('div');
-        LED.classList.add("led");
-        // LED.innerHTML = `${i} | ${findIndex(i)}`; // debug line
-        let index = findIndex(i);
-        LED.dataset.matrixIndex = index;
-        if (lsData[index] && lsData[index] !== "#000") LED.style.backgroundColor = lsData[index];
-        LED.addEventListener('mousedown', (event) => paintPixel(event));
-        LED.addEventListener('mouseover', (event) => dragPixel(event));
-        children.push(LED);
-    }
-    matrixData = lsData;
-    LEDMatrix.replaceChildren(...children);
-}
+// lightSocket.onmessage = (event) => {
+//     lsData = JSON.parse(event.data);
+//     if(lsData.length === 0) {
+//         setupBoard();
+//         return
+//     }
+//     const LEDMatrix = document.querySelector('#LEDMatrix');
+
+//     for (let i = 0; i < lsData.length; i++) {
+//         led=LEDMatrix.querySelector(`[data-matrix-index="${i}"]`);
+//         if (lsData[i] && lsData[i] !== "#000") led.style.backgroundColor = lsData[i];
+//     }
+//     matrixData = lsData;
+// }
 
 function setupBoard() {
     colorPicker = document.querySelector('#colorPicker');
@@ -66,8 +58,8 @@ function paintPixel(e) {
     const pixel = e.target;
     pixel.style.backgroundColor = eraseState ? '' : paintbrush;
     matrixData[pixel.dataset.matrixIndex] = eraseState ? 'off' : paintbrush;
-    //sendData();
-    lightSocket.send(JSON.stringify({'LEDMatrix': matrixData}));
+    sendData();
+    // lightSocket.send(JSON.stringify({'LEDMatrix': matrixData}));
 }
 
 async function sendData(){
